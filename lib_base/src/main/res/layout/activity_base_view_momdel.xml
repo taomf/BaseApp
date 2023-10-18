@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!-- 这个布局加入dataBinding纯粹是为了让BR生成viewModel的Variable
+         以便BaseVMActivity中调用mBinding.setVariable(BR.com.ygzy.devicewebservice.viewModel, mViewModel)
+         而不用实际使用的Activity(继承自BaseVMBActivity)每次都调用一遍-->
+
+        <variable
+            name="viewModel"
+            type="com.ygzy.lib_base.base.BaseVMViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.LoginActivity">
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DeviceWebService</string>
+    <string name="app_exit">再按一次退出程序!</string>
+
+
+    <string name="common_loading">加载中&#8230;</string>
+
+
+    <string name="network_lost">当前无法连接网络，请检查网络设置。</string>
+</resources>

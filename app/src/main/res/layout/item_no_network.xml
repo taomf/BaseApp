@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:visibility="invisible"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginTop="@dimen/_68sdp"
+        android:id="@+id/tv_network_status"
+        android:text="@string/network_lost"
+        android:textColor="@color/common_app_black"
+        android:background="#fce7e7"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
