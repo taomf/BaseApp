@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import com.hjq.toast.Toaster
 import com.tencent.mmkv.MMKV
 import kotlin.properties.Delegates
 
@@ -30,6 +31,7 @@ open class BaseApp : Application(), ViewModelStoreOwner {
 
         // MMKV初始化
         MMKV.initialize(this)
+        Toaster.init(this)
     }
 
     /** 获取一个全局的ViewModel */
