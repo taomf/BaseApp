@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">DeviceManage</string>
 
+    <string name="response_error">网络请求错误，请稍后重试</string>
+    <string name="network_error">网络连接失败，请稍后重试</string>
+    <string name="request_time_out">网络请求超时，请稍后重试</string>
+
     <string name="common_loading">加载中&#8230;</string>
     <string name="common_cancel">取消</string>
     <string name="common_confirm">确定</string>

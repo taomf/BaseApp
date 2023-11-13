@@ -5,6 +5,8 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.Gravity
 import androidx.annotation.DrawableRes
+import androidx.annotation.NonNull
+import androidx.annotation.StringRes
 import com.blankj.utilcode.util.ResourceUtils
 import com.hjq.toast.Toaster
 
@@ -21,11 +23,24 @@ fun showToast(string: String?) {
         Toaster.showShort(string)
     }
 }
+
+@NonNull
+fun showToast(@StringRes id: Int) {
+    Toaster.setGravity(Gravity.CENTER)
+    Toaster.showShort(id)
+}
+
 fun showLongToast(string: String?) {
     if (!string.isNullOrBlank()) {
         Toaster.setGravity(Gravity.CENTER)
         Toaster.showShort(string)
     }
+}
+
+@NonNull
+fun showLongToast(@StringRes id: Int) {
+    Toaster.setGravity(Gravity.CENTER)
+    Toaster.showLong(id)
 }
 
 fun getDrawableKt(@DrawableRes id :Int ) : Drawable {

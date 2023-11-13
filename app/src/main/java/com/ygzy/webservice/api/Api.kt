@@ -1,12 +1,9 @@
 package com.ygzy.webservice.api
 
-import com.ygzy.webservice.app.MyHttpUrl
 import com.ygzy.lib_base.http.BaseModel
+import com.ygzy.webservice.app.MyHttpUrl
 import io.reactivex.Observable
-import retrofit2.http.FieldMap
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 /**
@@ -23,4 +20,8 @@ interface Api {
     @FormUrlEncoded
     @POST(MyHttpUrl.LOGIN)
     fun login(@FieldMap fields :Map<String,String>): Observable<BaseModel<Any>>
+
+    /** 登录 */
+    @GET("getPlatformAddress")
+    fun getPlatformAddress(): Observable<BaseModel<String>>
 }

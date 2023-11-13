@@ -17,4 +17,8 @@ interface Api {
         @Field("username") username: String,
         @Field("password") pwd: String
     ): ApiResponse<Any>
+
+    /** 登录 */
+    @GET("getPlatformAddress")
+    suspend fun getPlatformAddress(): ApiResponse<String>
 }

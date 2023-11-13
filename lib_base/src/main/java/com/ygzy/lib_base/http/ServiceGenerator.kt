@@ -21,7 +21,7 @@ object ServiceGenerator {
     /** 测试 **/
 //    private const val BASEURL = "http://192.168.10.112/"
     /** uat **/
-    private const val BASEURL = "http://192.168.10.121/"
+    private const val BASEURL = "http://192.168.11.92:8089/"
 
     private const val TIMEOUT = 10L
 

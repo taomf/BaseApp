@@ -2,12 +2,15 @@ package com.ygzy.webservice.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.ygzy.lib_base.ext.PASSWORD
-import com.ygzy.lib_base.ext.USER_NAME
-import com.ygzy.lib_base.ext.USER_PHONE
-import com.ygzy.lib_base.ext.getSp
+import com.ygzy.lib_base.base.BaseObserver
+import com.ygzy.lib_base.ext.*
+import com.ygzy.lib_base.http.RxSchedulers
+import com.ygzy.lib_base.http.ServiceGenerator
 import com.ygzy.lib_base.utils.MyLogUtils
+import com.ygzy.webservice.api.Api
 import com.ygzy.webservice.base.BaseViewModel
+import com.ygzy.webservice.data.DataRepository
+import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 
@@ -36,9 +39,25 @@ class LoginViewModel : BaseViewModel() {
     val yzm by lazy { MutableLiveData<String>() }
 
 
-    fun login(name :String, paw :String,yzm :String,phone :String){
+    fun login(){
 
+        launch({
+            handleRequest(DataRepository.getPlatformAddress(), successBlock = {
+                MyLogUtils.d(MyLogUtils.TAG, ": $it")
+            })
+        })
+    }
 
+    fun login2(){
+        ServiceGenerator.getService(Api::class.java).getPlatformAddress().compose(RxSchedulers.compose()).subscribeOn(Schedulers.io()).subscribe(object : BaseObserver<String>(){
+            override fun onSuccess(result : String?) {
+                MyLogUtils.d(MyLogUtils.TAG, ": $result")
+            }
+
+            override fun onFailCode(failCode: Int) {
+                super.onFailCode(failCode)
+            }
+        })
     }
 
 

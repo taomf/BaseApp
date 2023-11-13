@@ -1,11 +1,15 @@
 package com.ygzy.lib_base.ext
 
 import androidx.lifecycle.viewModelScope
+import com.ygzy.lib_base.R
 import com.ygzy.lib_base.base.BaseVMViewModel
 import com.ygzy.lib_base.data.ApiResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
 /**
  * BaseViewModel的一些扩展方法
@@ -35,6 +39,15 @@ fun BaseVMViewModel.launch(
         } finally {
             finallyBlock()
         }
+    }
+}
+
+
+fun handleException(e: Exception){
+    when (e) {
+        is SocketTimeoutException -> showToast(R.string.request_time_out)
+        is ConnectException, is UnknownHostException -> showToast(R.string.network_error)
+        else -> showToast(R.string.response_error)
     }
 }
 

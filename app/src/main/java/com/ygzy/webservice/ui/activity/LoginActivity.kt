@@ -35,13 +35,13 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(R.layou
         super.onResume()
         mViewModel.test3()
         mBinding.tv.onClick {
-            mViewModel.test()
+            mViewModel.login()
 
-            val intent = Intent()
-            intent.action = Settings.ACTION_MANAGE_OVERLAY_PERMISSION
-            val uri: Uri = Uri.fromParts("package", packageName, null)
-            intent.data = uri
-            startActivity(intent)
+        }
+
+        mBinding.tv2.onClick {
+            mViewModel.login2()
+
         }
 
 
@@ -67,10 +67,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(R.layou
 
         fun login() {
             mViewModel.login(
-                mViewModel.userName.value ?:"",
-                mViewModel.userPwd.value ?:"",
-                mViewModel.yzm.value ?:"",
-                mViewModel.userPhone.value ?:""
+
                 )
         }
 
