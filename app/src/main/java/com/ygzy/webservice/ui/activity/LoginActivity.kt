@@ -1,14 +1,17 @@
 package com.ygzy.webservice.ui.activity
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.KeyEvent
 import com.blankj.utilcode.util.ActivityUtils
-import com.ygzy.webservice.base.BaseActivity
+import com.ygzy.lib_base.ext.onClick
 import com.ygzy.lib_base.ext.showToast
-import com.ygzy.webservice.viewModel.LoginViewModel
-import com.ygzy.webservice.databinding.ActivityLoginBinding
 import com.ygzy.webservice.R
-
+import com.ygzy.webservice.base.BaseActivity
+import com.ygzy.webservice.databinding.ActivityLoginBinding
+import com.ygzy.webservice.viewModel.LoginViewModel
 
 
 class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(R.layout.activity_login) {
@@ -30,6 +33,17 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(R.layou
 
     override  fun onResume() {
         super.onResume()
+        mViewModel.test3()
+        mBinding.tv.onClick {
+            mViewModel.test()
+
+            val intent = Intent()
+            intent.action = Settings.ACTION_MANAGE_OVERLAY_PERMISSION
+            val uri: Uri = Uri.fromParts("package", packageName, null)
+            intent.data = uri
+            startActivity(intent)
+        }
+
 
     }
 

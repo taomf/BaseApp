@@ -21,6 +21,11 @@
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+
     <!--适配Android R包可见性 开始-->
     <queries package="${applicationId}">
         <intent>
@@ -75,6 +80,14 @@
         </activity>
 
         <service android:name=".service.DeviceWebService"/>
+
+        <receiver android:name=".receiver.Receiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

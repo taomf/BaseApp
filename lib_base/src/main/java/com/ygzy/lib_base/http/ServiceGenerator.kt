@@ -1,5 +1,6 @@
 package com.ygzy.lib_base.http
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.ygzy.lib_base.ext.TOKEN
 import com.ygzy.lib_base.ext.TOKEN_TYPE
 import com.ygzy.lib_base.ext.getSp
@@ -42,6 +43,7 @@ object ServiceGenerator {
             .baseUrl(baseUrl)
             .client(okHttp) //请求Call的转换器
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) //返回内容的转换器
+            .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke()) //返回内容的转换器
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }// 以拦截到的请求为基础创建一个新的请求对象，然后插入Header

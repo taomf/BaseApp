@@ -52,12 +52,10 @@ class MyApp : BaseApp() {
         helper.register(this, object : AppFrontBackHelper.OnAppStatusListener {
             //应用切到前台处理
             override fun onFront() {
-                MyLogUtils.d(MyLogUtils.TAG, "onFront: 在前台")
             }
 
             //应用切到后台处理
             override fun onBack() {
-                MyLogUtils.d(MyLogUtils.TAG, "onBack: 在后台")
             }
         })
 
